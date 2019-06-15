@@ -93,7 +93,7 @@ gulp.task('images-and-styles', ['copy-styles', 'data-uri'], function(){
         .pipe(emoticonCssFilter)
         .pipe($.replace('.emoji-+1', '.emoji-plus1'))
         .pipe(gulp.dest(paths.dist.styles.sprites))
-        .pipe($.minifyCss())
+        .pipe($.cleanCss())
         .pipe($.rename({
             suffix: '.min'
         }))
@@ -120,7 +120,7 @@ gulp.task('images-and-styles', ['copy-styles', 'data-uri'], function(){
         .pipe(cssFilter)
         .pipe($.replace('.emoji-+1', '.emoji-plus1'))
         .pipe(gulp.dest(paths.dist.styles.sprites))
-        .pipe($.minifyCss())
+        .pipe($.cleanCss())
         .pipe($.rename({
              suffix: '.min'
         }))
@@ -143,7 +143,7 @@ gulp.task('data-uri', function(){
         .pipe($.concat('emojify-emoticons.css'))
         .pipe($.replace('.emoji-+1', '.emoji-plus1'))
         .pipe(gulp.dest(paths.dist.styles.dataURI))
-        .pipe($.minifyCss())
+        .pipe($.cleanCss())
         .pipe($.rename({
             suffix: '.min'
         }))
@@ -155,7 +155,7 @@ gulp.task('data-uri', function(){
         .pipe($.concat('emojify.css'))
         .pipe($.replace('.emoji-+1', '.emoji-plus1'))
         .pipe(gulp.dest(paths.dist.styles.dataURI))
-        .pipe($.minifyCss())
+        .pipe($.cleanCss())
         .pipe($.rename({
             suffix: '.min'
         }))
@@ -165,7 +165,7 @@ gulp.task('data-uri', function(){
 gulp.task('copy-styles', function(){
     gulp.src('./src/css/basic/*.css')
         .pipe(gulp.dest(paths.dist.styles.basic))
-        .pipe($.minifyCss())
+        .pipe($.cleanCss())
         .pipe($.rename({
             suffix: '.min'
         }))
